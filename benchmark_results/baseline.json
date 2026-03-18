@@ -1,0 +1,14 @@
+{
+  "name": "baseline",
+  "total_requests": 300,
+  "successful_requests": 300,
+  "failed_requests": 0,
+  "total_time_s": 3.0074585997499526,
+  "throughput_rps": 99.7519965943813,
+  "latency_mean_ms": 183.3849476541703,
+  "latency_p50_ms": 175.9374001994729,
+  "latency_p95_ms": 313.01190005615354,
+  "latency_p99_ms": 656.906200107187,
+  "cpu_percent_mean": null,
+  "memory_mb_mean": null
+}

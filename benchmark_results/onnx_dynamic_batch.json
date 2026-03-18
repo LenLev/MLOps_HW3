@@ -1,0 +1,14 @@
+{
+  "name": "onnx_dynamic_batch",
+  "total_requests": 300,
+  "successful_requests": 300,
+  "failed_requests": 0,
+  "total_time_s": 4.861041700001806,
+  "throughput_rps": 61.715166936315015,
+  "latency_mean_ms": 637.9502190137282,
+  "latency_p50_ms": 315.53660007193685,
+  "latency_p95_ms": 2194.1362000070512,
+  "latency_p99_ms": 2662.6952001824975,
+  "cpu_percent_mean": null,
+  "memory_mb_mean": null
+}
