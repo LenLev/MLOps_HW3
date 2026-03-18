@@ -65,19 +65,17 @@ uvicorn app.service_dynamic_batch:app --host 127.0.0.1 --port 8002
 python scripts/benchmark_http.py --name onnx_dynamic_batch --url http://127.0.0.1:8002/embed --total-requests 300 --concurrency 50 --texts-per-request 1 --out benchmark_results/onnx_dynamic_batch.json
 ```
 
-## Сводная таблица
-
-После трёх прогонов соберите сводку:
-
-```bash
-python scripts/aggregate_benchmarks.py --baseline benchmark_results/baseline.json --onnx benchmark_results/onnx.json --dynamic benchmark_results/onnx_dynamic_batch.json --out benchmark_results/summary.md
-```
-
 ## Что измеряется
 
 - `latency_mean_ms`, `latency_p50_ms`, `latency_p95_ms`, `latency_p99_ms`
 - `throughput_rps`
 - `cpu_percent_mean`, `memory_mb_mean` (если передать PID сервиса)
+
+Почему выбраны именно эти метрики:
+
+- Throughput показывает, сколько запросов в секунду реально тянет сервис
+- P50/P95/P99 показывают не только среднюю скорость, но и "плохие" случаи под нагрузкой
+- CPU/RAM помогают понять, какой вариант дешевле и стабильнее в эксплуатации
 
 Пример с PID:
 
@@ -85,8 +83,5 @@ python scripts/aggregate_benchmarks.py --baseline benchmark_results/baseline.jso
 python scripts/benchmark_http.py --name baseline --url http://127.0.0.1:8000/embed --server-pid 12345 --out benchmark_results/baseline.json
 ```
 
-## Где смотреть результаты
-
 - JSON-файлы: папка benchmark_results/
-- Краткая сводка: benchmark_results/summary.md
 - Отчёт: REPORT.md
